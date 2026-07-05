@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draft Card Preview</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        min-height: 100vh;
+      }
+
+      .preview-shell {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+      }
+
+      .preview-title {
+        margin: 0 0 20px;
+        font-size: 36px;
+        line-height: 1;
+      }
+
+      .draft-preview {
+        margin: 0 0 32px;
+      }
+
+      .draft-preview h2 {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-shell">
+      <h1 class="preview-title">Draft Card Preview</h1>
+      <div id="preview-root"></div>
+    </main>
+    <script src="src/data.js"></script>
+    <script src="src/ui.js"></script>
+    <script>
+      const draftOrder = ["Beginner Draft", "Pro Draft", "Spooky Draft", "Ramadan Draft", "Legendary Draft", "Elite Draft"];
+      const root = document.getElementById("preview-root");
+
+      function renderPreviewCard(player) {
+        const app = {
+          isUnlocked() {
+            return true;
+          },
+          state: {
+            selectedPlayerId: "",
+          },
+        };
+
+        const container = document.createElement("div");
+        container.innerHTML = window.GameUI.playerCard(player, {
+          locked: false,
+          selectable: false,
+          selected: false,
+        });
+        return container.firstElementChild;
+      }
+
+      for (const draft of draftOrder) {
+        const section = document.createElement("section");
+        section.className = "draft-preview";
+        const title = document.createElement("h2");
+        title.textContent = draft;
+        const grid = document.createElement("div");
+        grid.className = "card-grid";
+
+        for (const player of window.GAME_DATA.allPlayers.filter((card) => card.draft === draft)) {
+          grid.appendChild(renderPreviewCard(player));
+        }
+
+        section.append(title, grid);
+        root.appendChild(section);
+      }
+    </script>
+  </body>
+</html>

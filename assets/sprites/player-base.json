@@ -1,0 +1,24 @@
+{
+  "name": "player-base",
+  "kind": "generic-outfield-sprite-sheet",
+  "source": "Generated locally at runtime by src/match/assets/LocalSpriteSheetFactory.mjs",
+  "frameWidth": 64,
+  "frameHeight": 80,
+  "states": {
+    "idle": { "frames": 2, "frameMs": 400 },
+    "run": { "frames": 6, "frameMs": 90 },
+    "sprint": { "frames": 6, "frameMs": 70 },
+    "dribble": { "frames": 6, "frameMs": 86 },
+    "pass": { "frames": 4, "frameMs": 70, "contactFrame": 2 },
+    "shoot": { "frames": 5, "frameMs": 68, "contactFrame": 3 },
+    "tackle": { "frames": 5, "frameMs": 70, "contactFrame": 2 },
+    "stumble": { "frames": 4, "frameMs": 90 }
+  },
+  "directionVariants": ["right", "left-flip"],
+  "rules": [
+    "Generic kits only",
+    "No official logos",
+    "No official player photos",
+    "Tiny head and hair variation may be driven from card portrait metadata"
+  ]
+}

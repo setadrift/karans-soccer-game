@@ -1,0 +1,18 @@
+{
+  "name": "bench-to-ballon-dor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8020",
+    "assets:generate": "node scripts/generate-local-assets.mjs",
+    "check": "find src tests \\( -name '*.js' -o -name '*.mjs' \\) -print0 | xargs -0 -n1 node --check",
+    "build": "vite build",
+    "test:smoke": "node tests/fifa-like-smoke.js && node tests/match-engine-smoke.js && node tests/pack-flow-smoke.js && node tests/asset-pipeline-smoke.js"
+  },
+  "dependencies": {
+    "@dimforge/rapier2d-compat": "latest",
+    "pixi.js": "latest",
+    "vite": "latest",
+    "yuka": "latest"
+  }
+}

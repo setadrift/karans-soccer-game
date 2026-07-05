@@ -1,0 +1,25 @@
+{
+  "name": "keeper-base",
+  "kind": "generic-keeper-sprite-sheet",
+  "source": "Generated locally at runtime by src/match/assets/LocalSpriteSheetFactory.mjs",
+  "frameWidth": 64,
+  "frameHeight": 80,
+  "states": {
+    "idle": { "frames": 2, "frameMs": 400 },
+    "run": { "frames": 6, "frameMs": 90 },
+    "sprint": { "frames": 6, "frameMs": 75 },
+    "dribble": { "frames": 6, "frameMs": 90 },
+    "pass": { "frames": 4, "frameMs": 70, "contactFrame": 2 },
+    "shoot": { "frames": 5, "frameMs": 68, "contactFrame": 3 },
+    "tackle": { "frames": 5, "frameMs": 70, "contactFrame": 2 },
+    "save": { "frames": 5, "frameMs": 80, "contactFrame": 3 },
+    "stumble": { "frames": 4, "frameMs": 90 }
+  },
+  "directionVariants": ["right", "left-flip"],
+  "rules": [
+    "Generic keeper colors only",
+    "No official logos",
+    "No official player photos",
+    "Tiny head and hair variation may be driven from card portrait metadata"
+  ]
+}
